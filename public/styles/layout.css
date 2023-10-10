@@ -22,6 +22,12 @@ body {
   font-family: 'Source Sans 3', sans-serif;
 }
 
+main {
+  width: 90%;
+  margin: 0 auto;
+  background-color: inherit;
+}
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
