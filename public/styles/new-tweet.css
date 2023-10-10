@@ -1,0 +1,24 @@
+.new-tweet {
+}
+
+#tweet-text {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 3px solid #545149 ;
+  resize: none;
+  width: 100%;
+  height: 50px;
+  font-weight: bolder;
+  color: #545149;
+}
+
+div.tweet-button-count {
+  font-family: 'Bungee', sans-serif;
+}
+
+.tweet-button {
+  background-color: #2b3d77;
+  color: #FFFFFF;
+  
+}
