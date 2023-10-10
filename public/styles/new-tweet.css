@@ -15,10 +15,12 @@
 
 div.tweet-button-count {
   font-family: 'Bungee', sans-serif;
+  display: flex;
+  justify-content: space-between;
 }
 
 .tweet-button {
   background-color: #2b3d77;
   color: #FFFFFF;
-  
+  border: none;
 }
