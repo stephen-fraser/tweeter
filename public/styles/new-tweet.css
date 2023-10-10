@@ -1,4 +1,5 @@
 .new-tweet {
+  border:
 }
 
 #tweet-text {
@@ -23,4 +24,9 @@ div.below-tweet-text {
   background-color: #2b3d77;
   color: #FFFFFF;
   border: none;
+}
+
+.counter.invalid {
+  color: #b03838;
+  font-weight: bolder;
 }
