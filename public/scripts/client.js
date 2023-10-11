@@ -6,21 +6,26 @@
 
 $(document).ready(function() {
 
+  //When we are using dynamic generation of HTML elements with jQuery, we cannot use 
+  //the elements directly for event capturing. So that's why we use a parent container
+  //and then use the event on the actual element within that container. This is because 
+  //dynamic elements are not loaded till the DOM is loaded and the events are not registered.
+
   //shadow box for tweets upon mouseenter and mouseleave
-  $('article').on ('mouseenter', function () {
+  $('.tweet-container').on ('mouseenter', '.border-tweets', function () {
     $(this).css("box-shadow", "5px 5px 5px #555")
   } )
 
-  $('article').on ('mouseleave', function () {
+  $('.tweet-container').on ('mouseleave', '.border-tweets', function () {
     $(this).css("box-shadow", "0px 0px 0px #555");
   })
 
   //icon highlights upon mouseenter and mouseleave
-  $('.posted-footer-icons').on ('mouseenter', function () {
+  $('.tweet-container').on ('mouseenter','.posted-footer-icons', function () {
     $(this).addClass('highlight-icon');
   })
 
-  $('.posted-footer-icons').on ('mouseleave', function () {
+  $('.tweet-container').on ('mouseleave','.posted-footer-icons', function () {
     $(this).removeClass('highlight-icon');
   })  
 
@@ -46,7 +51,7 @@ $(document).ready(function() {
     const user = tweetData.user;
     const content = tweetData.content;
 
-    return markup = `
+    let $tweet = `
       <div class="border-tweets">
         <div class="posted-header">
           <div class="posted-header-left">
@@ -68,6 +73,7 @@ $(document).ready(function() {
         </div>
       </div>
       `
+      return $tweet;
     }
 
   const $tweet = createTweetElement(tweetData);
