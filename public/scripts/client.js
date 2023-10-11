@@ -29,10 +29,7 @@ $(document).ready(function() {
     $(this).removeClass('highlight-icon');
   })  
 
-  // const $tweet = $(`<article class="tweet">Hello world</article>`);
-  // console.log($tweet)
-  // $('.tweet-container').append($tweet);
-
+  // test driver data for tweets
   const data = [
     {
       "user": {
@@ -57,6 +54,8 @@ $(document).ready(function() {
       "created_at": 1461113959088
     }
   ]
+
+  // function to created the HTML tweet elements (already styled with CSS)
   const createTweetElement = function (tweet) {
 
     const user = tweet.user;
@@ -87,6 +86,8 @@ $(document).ready(function() {
       return $tweet;
     }
 
+  // function to render the tweets once they have been created 
+  // with the create tweet element funciton 
   const renderTweets = function(tweets) {
 
     for (let tweet of tweets) {
