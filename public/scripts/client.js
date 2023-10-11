@@ -98,5 +98,11 @@ $(document).ready(function() {
 
   renderTweets(data)
 
+  $(".tweet-form").on("submit", function(event) {
+
+    event.preventDefault();
+    
+  })
+
 });
 
