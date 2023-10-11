@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   $('#tweet-text').on ('input', function () {
-  console.log($(this).val().length)
+  // console.log($(this).val().length)
  
     const inputText = $(this).val().length;
     const charCount = $(this).closest('.tweet-form').find('.counter');

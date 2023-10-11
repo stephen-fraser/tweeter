@@ -11,6 +11,7 @@ article {
   margin-right: 30px;
   max-height: 100px;
   margin-bottom: 30px;
+  
 }
 
 .posted-header-left {
@@ -36,9 +37,13 @@ article {
   font-size: medium;
   margin-left: 30px;
   margin-right: 30px;
+  align-items: center
 }
 
 .posted-footer-icons {
-  display: flex;
-  justify-content: flex-end;
+  color: #2b3d77;
+}
+
+.highlight-icon {
+  color: #e6da3a;
 }
