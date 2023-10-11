@@ -6,6 +6,10 @@ article.tweet-container
   margin-bottom: 1em;
 }
 
+.border-tweets:hover {
+  box-shadow: 5px 5px 10px #555;
+}
+
 .posted-header {
   display: flex;
   justify-content: space-between;
@@ -42,10 +46,10 @@ article.tweet-container
   align-items: center
 }
 
-.posted-footer-icons {
+.posted-footer-icons i {
   color: #2b3d77;
 }
 
-.highlight-icon {
+.posted-footer i:hover {
   color: #a35e0a;
 }

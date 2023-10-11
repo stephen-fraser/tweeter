@@ -11,23 +11,25 @@ $(document).ready(function() {
   //and then use the event on the actual element within that container. This is because 
   //dynamic elements are not loaded till the DOM is loaded and the events are not registered.
 
-  //shadow box for tweets upon mouseenter and mouseleave
-  $('.tweet-container').on ('mouseenter', '.border-tweets', function () {
-    $(this).css("box-shadow", "5px 5px 5px #555")
-  } )
+  // Later changed this over to the CSS side
 
-  $('.tweet-container').on ('mouseleave', '.border-tweets', function () {
-    $(this).css("box-shadow", "0px 0px 0px #555");
-  })
+  // //shadow box for tweets upon mouseenter and mouseleave
+  // $('.tweet-container').on ('mouseenter', '.border-tweets', function () {
+  //   $(this).css("box-shadow", "5px 5px 5px #555")
+  // } )
 
-  //icon highlights upon mouseenter and mouseleave
-  $('.tweet-container').on ('mouseenter','.posted-footer-icons', function () {
-    $(this).addClass('highlight-icon');
-  })
+  // $('.tweet-container').on ('mouseleave', '.border-tweets', function () {
+  //   $(this).css("box-shadow", "0px 0px 0px #555");
+  // })
 
-  $('.tweet-container').on ('mouseleave','.posted-footer-icons', function () {
-    $(this).removeClass('highlight-icon');
-  })  
+  // //icon highlights upon mouseenter and mouseleave
+  // $('.tweet-container').on ('mouseenter','.posted-footer-icons', function () {
+  //   $(this).addClass('highlight-icon');
+  // })
+
+  // $('.tweet-container').on ('mouseleave','.posted-footer-icons', function () {
+  //   $(this).removeClass('highlight-icon');
+  // })  
 
   // test driver data for tweets
   const data = [
@@ -75,10 +77,10 @@ $(document).ready(function() {
         </div>
         <div class="posted-footer">
           <p>${tweet.created_at}</p>
-          <div>
-            <i class="fa-solid fa-flag posted-footer-icons"></i>
-            <i class="fa-solid fa-retweet posted-footer-icons"></i>
-            <i class="fa-solid fa-heart posted-footer-icons"></i>
+          <div class="posted-footer-icons">
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-retweet"></i>
+            <i class="fa-solid fa-heart"></i>
           </div>  
         </div>
       </div>
@@ -101,7 +103,9 @@ $(document).ready(function() {
   $(".tweet-form").on("submit", function(event) {
 
     event.preventDefault();
-    
+
+    console.log( $(this).serialize());
+
   })
 
 });
