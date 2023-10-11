@@ -106,6 +106,13 @@ $(document).ready(function() {
 
     console.log( $(this).serialize());
 
+    let url = ''
+
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: $(this).serialize()
+    })
   })
 
 });
