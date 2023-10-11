@@ -24,21 +24,39 @@ $(document).ready(function() {
     $(this).removeClass('highlight-icon');
   })  
 
-  const createTweetElement = function () {
+  // Test / driver code (temporary). Eventually will get this from the server.
+  const tweetData = {
+    "user": {
+      "name": "Newton",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+        "handle": "@SirIsaac"
+      },
+    "content": {
+        "text": "If I have seen further it is by standing on the shoulders of giants"
+      },
+    "created_at": 1461116232227
+  }
 
-    const $tweet = $(`<article class="tweet">Hello world</article>`);
+  // const $tweet = $(`<article class="tweet">Hello world</article>`);
+  // console.log($tweet)
+  // $('.tweet-container').append($tweet);
 
-    const markup = `
-      <article class="tweet-container">
+  const createTweetElement = function (tweetData) {
+
+    const user = tweetData.user;
+    const content = tweetData.content;
+
+    return markup = `
+      <div class="border-tweets">
         <div class="posted-header">
           <div class="posted-header-left">
-            <img class="reduce-image-size" src="${tweetData.user.avatars}">
-            <p>${tweetData.user.name}</p>
+            <img class="reduce-image-size" src="${user.avatars}">
+            <p>${user.name}</p>
           </div>
-          <p class="posted-header-right">${tweetData.user.handle}</p>
+            <p class="posted-header-right">${user.handle}</p>
         </div>
         <div class="posted-body">
-          <p>${tweetData.content.text}</p>
+          <p>${content.text}</p>
         </div>
         <div class="posted-footer">
           <p>${tweetData.created_at}</p>
@@ -48,29 +66,15 @@ $(document).ready(function() {
             <i class="fa-solid fa-heart posted-footer-icons"></i>
           </div>  
         </div>
-      </article>
-    `
+      </div>
+      `
+    }
 
-  }
+  const $tweet = createTweetElement(tweetData);
 
-  //   // Test / driver code (temporary). Eventually will get this from the server.
-  // const tweetData = {
-  //   "user": {
-  //     "name": "Newton",
-  //     "avatars": "https://i.imgur.com/73hZDYK.png",
-  //       "handle": "@SirIsaac"
-  //     },
-  //   "content": {
-  //       "text": "If I have seen further it is by standing on the shoulders of giants"
-  //     },
-  //   "created_at": 1461116232227
-  // }
-
-  // const $tweet = createTweetElement(tweetData);
-
-  // // Test / driver code (temporary)
-  // console.log($tweet); // to see what it looks like
-  // $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+//   // // Test / driver code (temporary)
+  console.log($tweet); // to see what it looks like
+  $('.tweet-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 
 });
 

@@ -1,6 +1,8 @@
-article.tweet-container {
+article.tweet-container 
+
+.border-tweets  {
   border-color: inherit;
-  border-style: solid;
+  border-style: solid ;
   margin-bottom: 1em;
 }
 
