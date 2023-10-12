@@ -94,7 +94,7 @@ $(document).ready(function() {
 
     for (let tweet of tweets) {
       const $tweet = createTweetElement(tweet)
-      $('.tweet-container').append($tweet)
+      $('.tweet-container').prepend($tweet)
     }
   }
 
@@ -120,17 +120,19 @@ $(document).ready(function() {
 
     event.preventDefault();
 
-    console.log( $(this).serialize());
-
     $.ajax({
       url: "/tweets",
       type: "POST",
       data: $(this).serialize()
+    }).then(() => {
+      $('.tweet-container').empty()
+      loadTweets();
+    }).catch((err) => {
+      console.log(err)
     })
-
-    loadTweets();
   })
 
-  renderTweets(loadTweets)
+  loadTweets()
+
 });
 
