@@ -5,6 +5,7 @@ article.tweet-container
   border-color: inherit;
   border-style: solid ;
   margin-bottom: 1em;
+  padding-top: 10px;
 }
 
 .border-tweets:hover {
@@ -55,5 +56,5 @@ article.tweet-container
   color: #a35e0a;
 }
 
-/*Mobile Styles*/
+
 

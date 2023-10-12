@@ -38,14 +38,7 @@ div.below-tweet-text {
   font-weight: bold;
   display: flex;
   justify-content: center;
-
 }
-
-/*Tablet Styles*/
-@media only screen and (min-width: 768px) {
-
-}
-
 
 /*Desktop Styles*/
 @media only screen and (min-width: 1024px) {

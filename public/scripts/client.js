@@ -4,7 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function() {
+$(document).ready(function () {
 
   //When we are using dynamic generation of HTML elements with jQuery, we cannot use 
   //the elements directly for event capturing. So that's why we use a parent container
@@ -58,24 +58,24 @@ $(document).ready(function() {
           </div>  
         </div>
       </div>
-      `
-      return $tweet;
-    }
+      `;
+    return $tweet;
+  };
 
-    const escape = (someString) => {
-      let div = document.createElement("div");
+  const escape = (someString) => {
+    let div = document.createElement("div");
     div.appendChild(document.createTextNode(someString));
     return div.innerHTML;
-    }
+  };
 
   // function to render the tweets once they have been created with the create tweet element function 
-  const renderTweets = function(tweets) {
+  const renderTweets = function (tweets) {
     // loop through tweets and use createTweetElement function to render in the correct mark up
     for (let tweet of tweets) {
-      const $tweet = createTweetElement(tweet)
-      $('.tweet-container').prepend($tweet)
+      const $tweet = createTweetElement(tweet);
+      $('.tweet-container').prepend($tweet);
     }
-  }
+  };
 
   // GET request function to loadTweets 
   const loadTweets = function () {
@@ -84,25 +84,25 @@ $(document).ready(function() {
       type: "GET",
       dataType: "json"
     }).then((tweets) => {
-        renderTweets(tweets);
+      renderTweets(tweets);
     }).catch((err) => {
-        console.log(err);
-    })
+      console.log(err);
+    });
   };
-  
+
 
   // POST request upon event listener submit with validation
-  $(".tweet-form").on("submit", function(event) {
+  $(".tweet-form").on("submit", function (event) {
 
     event.preventDefault();
 
-    $("#error-message").hide()
-    $("#error-message").empty()
+    $("#error-message").hide();
+    $("#error-message").empty();
 
     if (!$("#tweet-text").val()) {
-      $("#error-message").append('<i class="fa-solid fa-triangle-exclamation"></i>You cannot post an empty tweet<i class="fa-solid fa-triangle-exclamation"></i>').show()
+      $("#error-message").append('<i class="fa-solid fa-triangle-exclamation"></i>You cannot post an empty tweet<i class="fa-solid fa-triangle-exclamation"></i>').show();
     } else if ($("#tweet-text").val().length > 140) {
-      $("#error-message").append('<i class="fa-solid fa-triangle-exclamation">Oops, your tweet cannot exceed 140 characters<i class="fa-solid fa-triangle-exclamation">').show()
+      $("#error-message").append('<i class="fa-solid fa-triangle-exclamation"></i>Oops, your tweet cannot exceed 140 characters<i class="fa-solid fa-triangle-exclamation"></i>').show();
     } else {
 
       $.ajax({
@@ -110,17 +110,17 @@ $(document).ready(function() {
         type: "POST",
         data: $(this).serialize()
       }).then(() => {
-        $('.tweet-container').empty()
+        $('.tweet-container').empty();
         $("#tweet-text").val("");
         loadTweets();
       }).catch((err) => {
-        console.log(err)
-      })
+        console.log(err);
+      });
     }
-  })
+  });
 
-  
-  loadTweets()
-    
+
+  loadTweets();
+
 });
 
