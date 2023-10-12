@@ -117,19 +117,34 @@ $(document).ready(function() {
 
     event.preventDefault();
 
-    $.ajax({
-      url: "/tweets",
-      type: "POST",
-      data: $(this).serialize()
-    }).then(() => {
-      $('.tweet-container').empty()
-      loadTweets();
-    }).catch((err) => {
-      console.log(err)
-    })
+    // if(document.getElementById("tweet-text").value === "") {
+    //   alert("You cannot post an empty tweet.");
+    // }
+
+    // if($(this).length > 140) {
+    //   alert("Oops, your tweet cannot exceed 140 characters.")
+    // }
+
+    if (!$("#tweet-text").val()) {
+      alert("You cannot post an empty tweet");
+    } else if ($("#tweet-text").val().length > 140) {
+      alert("Oops, your tweet cannot exceed 140 characters.");
+    } else {
+      $.ajax({
+        url: "/tweets",
+        type: "POST",
+        data: $(this).serialize()
+      }).then(() => {
+        $('.tweet-container').empty()
+        loadTweets();
+      }).catch((err) => {
+        console.log(err)
+      })
+    }
   })
 
+  
   loadTweets()
-
+    
 });
 
