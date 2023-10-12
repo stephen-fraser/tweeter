@@ -105,15 +105,12 @@ $(document).ready(function() {
     $.ajax({
       url: "/tweets",
       type: "GET",
-      dataType: "json",
-      success: function(tweets) {
-        console.log("Tweet sent successfully", tweets);
+      dataType: "json"
+    }).then((tweets) => {
         renderTweets(tweets);
-      },
-      error:function(error) {
-        console.log("error", error);
-      }
-    });
+    }).catch((err) => {
+        console.log(err);
+    })
   };
 
   $(".tweet-form").on("submit", function(event) {
