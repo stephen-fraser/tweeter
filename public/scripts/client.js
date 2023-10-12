@@ -89,16 +89,20 @@ $(document).ready(function() {
         console.log(err);
     })
   };
-
+  
+  
   // POST request upon event listener submit with validation
   $(".tweet-form").on("submit", function(event) {
 
     event.preventDefault();
 
+    $("#error-message").hide()
+    $("#error-message").empty()
+
     if (!$("#tweet-text").val()) {
-      alert("You cannot post an empty tweet");
+      $("#error-message").append('<i class="fa-solid fa-triangle-exclamation"></i>You cannot post an empty tweet<i class="fa-solid fa-triangle-exclamation"></i>').show()
     } else if ($("#tweet-text").val().length > 140) {
-      alert("Oops, your tweet cannot exceed 140 characters.");
+      $("#error-message").append('<i class="fa-solid fa-triangle-exclamation">Oops, your tweet cannot exceed 140 characters<i class="fa-solid fa-triangle-exclamation">').show()
     } else {
 
       $.ajax({
@@ -107,6 +111,7 @@ $(document).ready(function() {
         data: $(this).serialize()
       }).then(() => {
         $('.tweet-container').empty()
+        $("#tweet-text").val("");
         loadTweets();
       }).catch((err) => {
         console.log(err)

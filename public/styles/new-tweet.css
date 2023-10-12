@@ -31,3 +31,11 @@ div.below-tweet-text {
   color: #ab2c2c;
   font-weight: bold;
 }
+
+#error-message {
+  color: #ab2c2c;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+
+}
