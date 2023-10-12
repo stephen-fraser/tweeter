@@ -31,32 +31,6 @@ $(document).ready(function() {
   //   $(this).removeClass('highlight-icon');
   // })  
 
-  // test driver data for tweets
-  // const data = [
-  //   {
-  //     "user": {
-  //       "name": "Newton",
-  //       "avatars": "https://i.imgur.com/73hZDYK.png"
-  //       ,
-  //       "handle": "@SirIsaac"
-  //     },
-  //     "content": {
-  //       "text": "If I have seen further it is by standing on the shoulders of giants"
-  //     },
-  //     "created_at": 1461116232227
-  //   },
-  //   {
-  //     "user": {
-  //       "name": "Descartes",
-  //       "avatars": "https://i.imgur.com/nlhLi3I.png",
-  //       "handle": "@rd" },
-  //     "content": {
-  //       "text": "Je pense , donc je suis"
-  //     },
-  //     "created_at": 1461113959088
-  //   }
-  // ]
-
   // function to created the HTML tweet elements (already styled with CSS)
   const createTweetElement = function (tweet) {
 
@@ -73,7 +47,7 @@ $(document).ready(function() {
             <p class="posted-header-right">${user.handle}</p>
         </div>
         <div class="posted-body">
-          <p>${content.text}</p>
+          <p>${escape(content.text)}</p>
         </div>
         <div class="posted-footer">
           <p>${timeago.format(tweet.created_at)}</p>
@@ -88,19 +62,22 @@ $(document).ready(function() {
       return $tweet;
     }
 
-  // function to render the tweets once they have been created 
-  // with the create tweet element funciton 
-  const renderTweets = function(tweets) {
+    const escape = (someString) => {
+      let div = document.createElement("div");
+    div.appendChild(document.createTextNode(someString));
+    return div.innerHTML;
+    }
 
+  // function to render the tweets once they have been created with the create tweet element function 
+  const renderTweets = function(tweets) {
+    // loop through tweets and use createTweetElement function to render in the correct mark up
     for (let tweet of tweets) {
       const $tweet = createTweetElement(tweet)
       $('.tweet-container').prepend($tweet)
     }
   }
 
-  // renderTweets(data)
-
-
+  // GET request function to loadTweets 
   const loadTweets = function () {
     $.ajax({
       url: "/tweets",
@@ -113,23 +90,17 @@ $(document).ready(function() {
     })
   };
 
+  // POST request upon event listener submit with validation
   $(".tweet-form").on("submit", function(event) {
 
     event.preventDefault();
-
-    // if(document.getElementById("tweet-text").value === "") {
-    //   alert("You cannot post an empty tweet.");
-    // }
-
-    // if($(this).length > 140) {
-    //   alert("Oops, your tweet cannot exceed 140 characters.")
-    // }
 
     if (!$("#tweet-text").val()) {
       alert("You cannot post an empty tweet");
     } else if ($("#tweet-text").val().length > 140) {
       alert("Oops, your tweet cannot exceed 140 characters.");
     } else {
+
       $.ajax({
         url: "/tweets",
         type: "POST",
