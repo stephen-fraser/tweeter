@@ -1,3 +1,4 @@
+/*Mobile Styles*/
 .new-tweet {
   margin-top: 1em;
   margin-bottom: 2em;
@@ -38,4 +39,24 @@ div.below-tweet-text {
   display: flex;
   justify-content: center;
 
+}
+
+/*Tablet Styles*/
+@media only screen and (min-width: 768px) {
+
+}
+
+
+/*Desktop Styles*/
+@media only screen and (min-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 3vw;
+    margin-left: 12vw;
+  }
+
+  .new-tweet {
+    margin-top: 220px;
+  }
 }
