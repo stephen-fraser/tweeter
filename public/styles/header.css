@@ -1,3 +1,4 @@
+/*Mobile Styles*/
 header  {
   height: 520px;
   width: 100%;
@@ -13,4 +14,13 @@ header  {
 .header-name {
   margin: 0;
   padding-bottom: 1em;
+}
+
+/*Desktop Styles*/
+@media only screen and (min-width: 1024px) {
+  header {
+    width: 33.3%;
+    position: left;
+    display: 
+  }
 }

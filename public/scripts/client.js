@@ -90,7 +90,7 @@ $(document).ready(function() {
     })
   };
   
-  
+
   // POST request upon event listener submit with validation
   $(".tweet-form").on("submit", function(event) {
 
