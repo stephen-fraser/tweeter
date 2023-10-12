@@ -1,9 +1,6 @@
-/*Mobile Styles*/
-article.tweet-container 
-
-.border-tweets  {
+.border-tweets {
   border-color: inherit;
-  border-style: solid ;
+  border-style: solid;
   margin-bottom: 1em;
   padding-top: 10px;
 }
@@ -19,7 +16,6 @@ article.tweet-container
   margin-right: 30px;
   max-height: 100px;
   margin-bottom: 30px;
-  
 }
 
 .posted-header-left {
@@ -33,7 +29,7 @@ article.tweet-container
 
 .posted-body {
   display: flex;
-  border-bottom: 3px solid #545149 ;
+  border-bottom: 3px solid #545149;
   font-weight: 500;
   margin-left: 30px;
   margin-right: 30px;
@@ -55,6 +51,3 @@ article.tweet-container
 .posted-footer i:hover {
   color: #a35e0a;
 }
-
-
-

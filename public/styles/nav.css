@@ -1,4 +1,3 @@
-
 nav {
   position: fixed;
   height: 120px;
@@ -26,6 +25,5 @@ nav span {
 }
 
 .tweet-header-icon {
-  color: crimson; 
+  color: crimson;
 }
-
