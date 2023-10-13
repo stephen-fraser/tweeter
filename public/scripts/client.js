@@ -63,7 +63,7 @@ $(document).ready(function () {
 
   // POST request upon event listener submit with validation
   $(".tweet-form").on("submit", function (event) {
-    
+
     //required to prevent default submit response
     event.preventDefault();
 
@@ -82,8 +82,8 @@ $(document).ready(function () {
         type: "POST",
         data: $(this).serialize()
       }).then(() => {
-        // $('.tweet-container').empty();
         $("#tweet-text").val("");
+        $(".counter").text("140");
         loadTweets();
       }).catch((err) => {
         console.log(err);
