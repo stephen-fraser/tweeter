@@ -1,10 +1,9 @@
 $(document).ready(function() {
 
   $('#tweet-text').on ('input', function () {
-  // console.log($(this).val().length)
  
     const inputText = $(this).val().length;
-    const charCount = $(this).closest('.tweet-form').find('.counter');
+    const charCount = $(this).siblings('.below-tweet-text').children('.counter');
 
     if (inputText > 140) {
       charCount.text(140 - inputText).addClass('invalid');

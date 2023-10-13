@@ -110,7 +110,7 @@ $(document).ready(function () {
         type: "POST",
         data: $(this).serialize()
       }).then(() => {
-        $('.tweet-container').empty();
+        // $('.tweet-container').empty();
         $("#tweet-text").val("");
         loadTweets();
       }).catch((err) => {
