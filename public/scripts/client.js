@@ -82,6 +82,7 @@ $(document).ready(function () {
         type: "POST",
         data: $(this).serialize()
       }).then(() => {
+        $(".tweet-container").empty()
         $("#tweet-text").val("");
         $(".counter").text("140");
         loadTweets();
