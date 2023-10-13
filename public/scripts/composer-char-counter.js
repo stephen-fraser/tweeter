@@ -10,6 +10,5 @@ $(document).ready(function() {
     } else {
       charCount.text(140 - inputText).removeClass('invalid');
     }
-
   })
 });

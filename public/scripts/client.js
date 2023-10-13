@@ -1,35 +1,4 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 $(document).ready(function () {
-
-  //When we are using dynamic generation of HTML elements with jQuery, we cannot use 
-  //the elements directly for event capturing. So that's why we use a parent container
-  //and then use the event on the actual element within that container. This is because 
-  //dynamic elements are not loaded till the DOM is loaded and the events are not registered.
-
-  // Later changed this over to the CSS side
-
-  // //shadow box for tweets upon mouseenter and mouseleave
-  // $('.tweet-container').on ('mouseenter', '.border-tweets', function () {
-  //   $(this).css("box-shadow", "5px 5px 5px #555")
-  // } )
-
-  // $('.tweet-container').on ('mouseleave', '.border-tweets', function () {
-  //   $(this).css("box-shadow", "0px 0px 0px #555");
-  // })
-
-  // //icon highlights upon mouseenter and mouseleave
-  // $('.tweet-container').on ('mouseenter','.posted-footer-icons', function () {
-  //   $(this).addClass('highlight-icon');
-  // })
-
-  // $('.tweet-container').on ('mouseleave','.posted-footer-icons', function () {
-  //   $(this).removeClass('highlight-icon');
-  // })  
 
   // function to created the HTML tweet elements (already styled with CSS)
   const createTweetElement = function (tweet) {
@@ -62,6 +31,7 @@ $(document).ready(function () {
     return $tweet;
   };
 
+  // escape function to provent XSS / called above
   const escape = (someString) => {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(someString));
@@ -93,12 +63,14 @@ $(document).ready(function () {
 
   // POST request upon event listener submit with validation
   $(".tweet-form").on("submit", function (event) {
-
+    
+    //required to prevent default submit response
     event.preventDefault();
 
     $("#error-message").hide();
     $("#error-message").empty();
 
+    //validation checks for empty tweet and tweet exceeding 140 characters
     if (!$("#tweet-text").val()) {
       $("#error-message").append('<i class="fa-solid fa-triangle-exclamation"></i>You cannot post an empty tweet<i class="fa-solid fa-triangle-exclamation"></i>').show();
     } else if ($("#tweet-text").val().length > 140) {
@@ -118,7 +90,6 @@ $(document).ready(function () {
       });
     }
   });
-
 
   loadTweets();
 
